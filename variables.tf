@@ -8,8 +8,8 @@ variable outputs {
   type        = map(string)
 }
 
-variable export_outputs {
-  description = "Whether to export the output values as CloudFormation Outputs to be used by other stacks."
-  type        = bool
-  default     = true
-}
+# variable export_outputs {
+#   description = "Whether to export the output values as CloudFormation Outputs to be used by other stacks."
+#   type        = bool
+#   default     = true
+# }
