@@ -20,4 +20,6 @@ this, we create a custom `NullResource` in the Stack that uses a falsey conditio
          foo = "bar"  
          baz = "buux"  
        }  
+
+       export_outputs = true
      }
