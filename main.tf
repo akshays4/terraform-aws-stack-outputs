@@ -33,7 +33,7 @@ terraform {
 locals {
   // This is a little gross, but allows us to pass in snake_case or kebab-case keys
   // and convert them to CamelCase, since Cloudformation does not allow hyphens or underscores.
-  outputs = var.export_outputs ? { for k, v in var.outputs : replace(title(replace(k, "/[\\-_]/", " ")), " ", "") => { Value = (v), Export = {Name = "AWS::NoValue"} }} : { for k, v in var.outputs : replace(title(replace(k, "/[\\-_]/", " ")), " ", "") => { Value = (v), Export = { Name = (replace(title(replace(k, "/[\\-_]/", " ")), " ", ""))} } }
+  outputs = var.export_outputs ? { for k, v in var.outputs : replace(title(replace(k, "/[\\-_]/", " ")), " ", "") => { Value = (v), Export = { Name = (replace(title(replace(k, "/[\\-_]/", " ")), " ", ""))} } } : { for k, v in var.outputs : replace(title(replace(k, "/[\\-_]/", " ")), " ", "") => { Value = (v)}}
   # outputs = { for k, v in var.outputs : replace(title(replace(k, "/[\\-_]/", " ")), " ", "") => { Value = (v), Export = { Name = (replace(title(replace(k, "/[\\-_]/", " ")), " ", ""))} } }
 
   // yamlencode wraps everything in quotes, which Cloudformation does not like, so we remove the quotes.
